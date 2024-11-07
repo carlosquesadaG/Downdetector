@@ -2,8 +2,8 @@ import requests
 import json
 
 # Definición de ASNs por operador
-# asns_colombia = [8151, 27831, 6147, 22927, 27947, 52248]
-asns_colombia = [37788]
+# asns_colombia = [7161, 27831, 6147, 22927, 27947, 52248]
+asns_colombia = [52248]
 # Lista de todos los ASNs que quieres consultar
 
 # Parámetros de consulta y encabezados

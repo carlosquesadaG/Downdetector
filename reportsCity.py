@@ -26,7 +26,7 @@ def get_company_id(company_name):
 
 # Función para obtener las ciudades con reportes de problemas
 def get_cities_with_reports(company_slug, company_id, country_id=136):
-    url = f"https://downdetectorapi.com/v2/slugs/{company_slug}/cities?countries={country_id}&companies={company_id}/startdate=2024-11-01T00:00:00+00:00/enddate=2024-11-07T00:00:00+00:00"
+    url = f"https://downdetectorapi.com/v2/slugs/{company_slug}/cities?countries={country_id}&companies={company_id}"
     headers = {
         "Authorization": f"Bearer {API_TOKEN}"
     }
