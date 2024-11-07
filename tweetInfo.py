@@ -30,7 +30,7 @@ def get_company_tweets(company_id, start_date, end_date, page_size=25):
         "startdate": start_date,
         "enddate": end_date,
         "page_size": str(page_size),
-        "term": "website",  # Ajusta este parámetro de búsqueda según tus necesidades
+        "term": "website",
         "retweets": "true"
     }
     headers = {

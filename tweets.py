@@ -31,8 +31,8 @@ def get_company_tweets(company_id, start_date, end_date, page_size=25):
         "startdate": start_date,
         "enddate": end_date,
         "page_size": str(page_size),
-        "retweets": "true",  # Considerar los retweets
-        "term": "website",  # Ejemplo de búsqueda por término
+        "retweets": "true",
+        "term": "website", 
     }
     headers = {
         "Authorization": f"Bearer {API_TOKEN}"
