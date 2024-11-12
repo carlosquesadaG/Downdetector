@@ -1,6 +1,5 @@
 import requests
 
-# Token de API de Downdetector
 API_TOKEN = 'eyJhbGciOiJIUzUxMiIsImtpZCI6Ino2eHdrenAyZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhcGkiLCJpYXQiOjE3MzA5MjQzOTksImp0aSI6ImI5NjYwYTI5LWI1MWUtNDNlOC1iNWM3LTRjODMyYTEzZTNlZiJ9.iE_gtLlilo3jhaCRif6E42cMtq29TZ4jE6VSN3fVidM1POCDegG4Q6H6Dt93BfyFRxU3nrhbB7QWcqhG_MigYg'
 
 
@@ -31,7 +30,7 @@ def get_company_tweet_terms(company_id, start_date, end_date, filter_terms="inte
     querystring = {
         "startdate": start_date,
         "enddate": end_date,
-        "filter": filter_terms,
+        "filter": [],
         "exclude": exclude_terms,
         "amount": str(amount)
     }

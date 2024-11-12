@@ -1,12 +1,9 @@
 const axios = require('axios');
 
-// Token de API de Downdetector
 const API_TOKEN = 'eyJhbGciOiJIUzUxMiIsImtpZCI6Ino2eHdrenAyZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhcGkiLCJpYXQiOjE3MzA5MjQzOTksImp0aSI6ImI5NjYwYTI5LWI1MWUtNDNlOC1iNWM3LTRjODMyYTEzZTNlZiJ9.iE_gtLlilo3jhaCRif6E42cMtq29TZ4jE6VSN3fVidM1POCDegG4Q6H6Dt93BfyFRxU3nrhbB7QWcqhG_MigYg';
 
-// Configuración para ignorar la verificación de certificado
 const httpsAgent = new (require('https').Agent)({ rejectUnauthorized: false });
 
-// Función para obtener el company_id de una compañía
 async function getCompanyId(companyName) {
     const url = `https://downdetectorapi.com/v2/companies/search?fields=id,name,slug,country_iso,indicators,site_id&name=${companyName}`;
     const headers = { Authorization: `Bearer ${API_TOKEN}` };
@@ -31,7 +28,6 @@ async function getCompanyId(companyName) {
     return null;
 }
 
-// Función para obtener tweets de la compañía usando el company_id
 async function getCompanyTweets(companyId, startDate, endDate, pageSize = 25) {
     const url = `https://downdetectorapi.com/v2/companies/${companyId}/tweets`;
     const params = {
@@ -48,13 +44,8 @@ async function getCompanyTweets(companyId, startDate, endDate, pageSize = 25) {
         const tweets = response.data;
 
         if (Array.isArray(tweets)) {
-            // Si la respuesta es una lista
             console.log(`Tweets encontrados para company_id ${companyId}:`);
             tweets.forEach(tweet => console.log(tweet));
-        } else if (typeof tweets === 'object' && tweets.data) {
-            // Si la respuesta es un diccionario (como se esperaba)
-            console.log(`Tweets encontrados para company_id ${companyId}:`);
-            tweets.data.forEach(tweet => console.log(tweet));
         } else {
             console.log(`Formato de respuesta inesperado para company_id ${companyId}.`);
         }

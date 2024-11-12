@@ -1,15 +1,13 @@
 import requests
 import json
 
-# Definición de ASNs por operador
-# asns_colombia = [7161, 27831, 6147, 22927, 27947, 52248]
-asns_colombia = [52248]
-# Lista de todos los ASNs que quieres consultar
+# Definición de ASNs específicos de Claro en Colombia
+asns_claro_colombia = [6147, 27947, 52248]  # Actualiza esta lista con los ASNs conocidos de Claro
 
 # Parámetros de consulta y encabezados
 querystring = {
-    "startdate": "2024-11-01T13:37:42+00:00",
-    "enddate": "2024-11-06T13:37:42+00:00",
+    "startdate": "2024-11-06T13:37:42+00:00",
+    "enddate": "2024-11-07T13:37:42+00:00",
     "interval": "60m",
     "offset": "7m"
 }
@@ -21,8 +19,8 @@ headers = {
 # URL base de Downdetector para cada ASN
 url_template = "https://downdetectorapi.com/v2/networks/{asn}/reports"
 
-# Consulta para cada ASN
-for asn in asns_colombia:
+# Consulta para cada ASN de Claro Colombia
+for asn in asns_claro_colombia:
     url = url_template.format(asn=asn)
     response = requests.get(url, headers=headers, params=querystring)
 

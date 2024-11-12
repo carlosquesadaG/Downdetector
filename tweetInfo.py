@@ -40,16 +40,16 @@ def get_company_tweets(company_id, start_date, end_date, page_size=25):
     response = requests.get(url, headers=headers, params=querystring, verify=False)
     if response.status_code == 200:
         tweets = response.json()
-        if tweets:
+        if isinstance(tweets, dict) and 'data' in tweets:
             # Almacenar los tweets en una lista
             tweet_list = []
-            for tweet in tweets.get('data', []):
+            for tweet in tweets['data']:
                 tweet_list.append(tweet)
             
             # Imprimir los tweets formateados como JSON
             print(json.dumps({"tweets": tweet_list}, indent=4, ensure_ascii=False))
         else:
-            print(json.dumps({"message": f"No se encontraron tweets para company_id {company_id}."}, indent=4))
+            print(json.dumps({"message": f"No se encontraron tweets o la estructura de datos no es la esperada para company_id {company_id}."}, indent=4))
     else:
         print(json.dumps({"error": f"Error {response.status_code}: {response.text}"}, indent=4))
 
