@@ -6,6 +6,7 @@ bearer = 'eyJhbGciOiJIUzUxMiIsImtpZCI6Ino2eHdrenAyZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3M
 
 headers = {'Authorization': f'Bearer {bearer}'}
 
+
 response = requests.get(url, headers=headers, verify=False)
 
 # Verificar si la respuesta es exitosa

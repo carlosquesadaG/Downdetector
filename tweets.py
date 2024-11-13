@@ -50,7 +50,7 @@ def get_company_tweets(company_id, start_date, end_date, page_size=25):
 companies = ["claro", "movistar", "tigo"]
 
 # Fechas de inicio y fin para la consulta (puedes modificarlas según tu necesidad)
-start_date = "2024-11-06T00:00:00+00:00"
+start_date = "2024-11-05T00:00:00+00:00"
 end_date = "2024-11-07T00:00:00+00:00"
 
 # Obtener tweets para cada empresa
