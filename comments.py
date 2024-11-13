@@ -50,7 +50,7 @@ def get_company_comments(company_id, start_date, end_date, filter_terms="interne
         print(f"Error {response.status_code}: {response.text}")
 
 # Ejecución de las funciones para un ejemplo
-company_name = "movistar"
+company_name = "claro"
 start_date = "2024-11-06T00:00:00+00:00"  # Ajusta las fechas a tu preferencia
 end_date = "2024-11-07T00:59:59+00:00"    # Ajusta las fechas a tu preferencia
 
