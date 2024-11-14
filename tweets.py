@@ -1,7 +1,7 @@
 import requests
 
 # Asignando el token de autenticación proporcionado
-API_TOKEN = "eyJhbGciOiJIUzUxMiIsImtpZCI6Ino2eHdrenAyZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhcGkiLCJpYXQiOjE3MzA5MjQzOTksImp0aSI6ImI5NjYwYTI5LWI1MWUtNDNlOC1iNWM3LTRjODMyYTEzZTNlZiJ9.iE_gtLlilo3jhaCRif6E42cMtq29TZ4jE6VSN3fVidM1POCDegG4Q6H6Dt93BfyFRxU3nrhbB7QWcqhG_MigYg"
+API_TOKEN = "eyJhbGciOiJIUzUxMiIsImtpZCI6Ino2eHdrenAyZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhcGkiLCJpYXQiOjE3MzE1MTU1NDcsImp0aSI6ImM0MmQ3ODM1LTFkYWQtNGI1My05ZWQ0LTFkMWNlMzllNzM0ZSJ9.cG51gDwZu7xSK8pYrf-s9NQLyOmCWC_kXOzx520aJfYFz51urv17HD_wis8NMqIgkpmETtng1eCfNLt5wrouuQ"
 
 # Función para obtener el company_id de una compañía
 def get_company_id(company_name):
@@ -25,11 +25,11 @@ def get_company_id(company_name):
     return None
 
 # Función para obtener los tweets de una compañía utilizando el company_id
-def get_company_tweets(company_id, start_date, end_date, page_size=25):
+def get_company_tweets(company_id, page_size=25):
     url = f"https://downdetectorapi.com/v2/companies/{company_id}/tweets"
     querystring = {
-        "startdate": start_date,
-        "enddate": end_date,
+        # "startdate": start_date,
+        # "enddate": end_date,
         "page_size": str(page_size),
         "retweets": "true",
         "term": "website", 
@@ -50,8 +50,8 @@ def get_company_tweets(company_id, start_date, end_date, page_size=25):
 companies = ["claro", "movistar", "tigo"]
 
 # Fechas de inicio y fin para la consulta (puedes modificarlas según tu necesidad)
-start_date = "2024-11-05T00:00:00+00:00"
-end_date = "2024-11-07T00:00:00+00:00"
+# start_date = "2024-11-08T00:00:00+00:00"
+# end_date = "2024-11-09T23:00:00+00:00"
 
 # Obtener tweets para cada empresa
 for company in companies:
@@ -60,7 +60,7 @@ for company in companies:
     if company_id:
         print(f"Obteniendo tweets para {company.capitalize()}...")
         # Obtener los tweets de la compañía
-        tweets = get_company_tweets(company_id, start_date, end_date)
+        tweets = get_company_tweets(company_id)
         if tweets:
             print(f"Tweets para {company.capitalize()}:")
             for tweet in tweets:

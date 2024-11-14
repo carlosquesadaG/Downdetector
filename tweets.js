@@ -56,9 +56,9 @@ async function getCompanyTweets(companyId, startDate, endDate, pageSize = 25) {
 
 // Ejecución de las funciones para un ejemplo
 (async () => {
-    const companyName = "Claro";
-    const startDate = "2024-11-05T00:00:00+00:00";
-    const endDate = "2024-11-07T00:00:00+00:00";
+    const companyName = "tigo";
+    const startDate = "2024-11-08T00:00:00+00:00";
+    const endDate = "2024-11-09T00:00:00+00:00";
 
     // Obtener el company_id
     const companyId = await getCompanyId(companyName);
